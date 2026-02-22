@@ -13,9 +13,9 @@
       scroll-behavior: smooth;
     }
     header {
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       backdrop-filter: blur(10px);
-      padding: 15px 40px;
+      padding: 20px 40px;
       position: fixed;
       width: 100%;
       top: 0;
@@ -28,15 +28,15 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 15px;
     }
     .logo {
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #d4b895;
-      box-shadow: 0 0 10px rgba(212,184,149,0.2);
+      border: none;
+      box-shadow: none;
     }
     h1 {
       font-size: 2.2rem;
@@ -47,10 +47,123 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .products {
+    nav {
+      position: fixed;
+      top: 130px;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      padding: 18px 0;
+      text-align: center;
+      z-index: 999;
+      border-bottom: 1px solid #333;
+    }
+    nav a {
+      color: #ffd700;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin: 0 40px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 12px rgba(255,215,0,0.9), 0 2px 4px #000;
+      padding: 8px 20px;
+      border-radius: 30px;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      background: rgba(212,184,149,0.15);
+      color: #fff;
+      text-shadow: 0 0 20px #fff;
+      transform: scale(1.1);
+    }
+    /* Modal de bienvenida con logo 3D (usa honey.png) */
+    .welcome-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #d4b895;
+      text-align: center;
+      padding: 20px;
+    }
+    .logo-3d-container {
+      perspective: 1200px;
+      margin-bottom: 40px;
+    }
+    .logo-3d {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      transform-style: preserve-3d;
+      animation: rotate3D 12s infinite linear;
+      box-shadow: 0 0 60px rgba(212,184,149,0.7);
+    }
+    @keyframes rotate3D {
+      from { transform: rotateY(0deg) rotateX(10deg); }
+      to   { transform: rotateY(360deg) rotateX(10deg); }
+    }
+    .welcome-modal h2 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #d4b895, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .enter-btn {
+      background: #d4b895;
+      color: #000;
+      border: none;
+      padding: 15px 50px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 30px;
+    }
+    .enter-btn:hover {
+      background: transparent;
+      color: #d4b895;
+      border: 2px solid #d4b895;
+      transform: scale(1.1);
+    }
+    /* Badge edición limitada */
+    .badge-limited {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff4444;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    section.category {
       max-width: 1400px;
-      margin: 120px auto 80px;
+      margin: 220px auto 60px;
       padding: 0 25px;
+    }
+    .category-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #d4b895, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .products {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 35px;
@@ -215,6 +328,12 @@
       z-index: 1000;
       transition: all 0.3s;
       text-decoration: none;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,213,102,0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37,213,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,213,102,0); }
     }
     .whatsapp-float:hover {
       transform: scale(1.1);
@@ -234,122 +353,174 @@
     }
     @media (max-width: 768px) {
       h1 { font-size: 1.8rem; }
-      .products { gap: 25px; padding: 0 15px; margin-top: 100px; }
+      .category-title { font-size: 2.2rem; }
+      nav a { font-size: 1.3rem; margin: 0 20px; padding: 6px 12px; }
+      .products { gap: 25px; padding: 0 15px; }
       .product-img-wrapper { height: 260px; }
-      .logo { width: 50px; height: 50px; }
-      .whatsapp-float { font-size: 0.9rem; padding: 0 15px; height: 45px; }
-      .whatsapp-float svg { width: 28px; height: 28px; }
+      .logo { width: 80px; height: 80px; }
+      .logo-3d { width: 160px; height: 160px; }
+      .welcome-modal h2 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Modal de bienvenida con logo 3D (usa img/honey.png) -->
+  <div id="welcomeModal" class="welcome-modal">
+    <div class="logo-3d-container">
+      <img src="img/honey.png" alt="Honey Shop Logo 3D" class="logo-3d">
+    </div>
+    <h2>Bienvenido a Honey Shop</h2>
+    <p>Urban Clothing Ensenada - Ediciones limitadas 🔥</p>
+    <button class="enter-btn" onclick="document.getElementById('welcomeModal').style.display='none'">Entrar a la tienda</button>
+  </div>
+
   <header>
     <div class="logo-container">
-      <!-- Logo local desde tu carpeta imagenes -->
       <img src="img/logo.jpeg" alt="Honey Shop Logo" class="logo">
       <h1>HONEY SHOP</h1>
     </div>
   </header>
 
-  <section class="products">
+  <nav>
+    <a href="#gorras">GORRAS</a>
+    <a href="#camisetas">CAMISETAS</a>
+  </nav>
 
-    <!-- 1. B Star Graffiti -->
-    <div class="product-card" data-img="https://tse1.mm.bing.net/th/id/OIP.3SI1cdlLYrrmDDnSlN7ptAHaF3?rs=1&pid=ImgDetMain" data-title="B Star Graffiti" data-price="$800" data-desc="Gorra all-black premium con estrella B central en cristales y detalles bordados 3D oscuros.">
-      <div class="product-img-wrapper">
-        <img src="https://tse1.mm.bing.net/th/id/OIP.3SI1cdlLYrrmDDnSlN7ptAHaF3?rs=1&pid=ImgDetMain" alt="B Star Graffiti" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+  <!-- Sección Gorras -->
+  <section class="category" id="gorras">
+    <h2 class="category-title">GORRAS</h2>
+    <div class="products">
+
+      <div class="product-card" data-img="https://tse1.mm.bing.net/th/id/OIP.3SI1cdlLYrrmDDnSlN7ptAHaF3?rs=1&pid=ImgDetMain" data-title="B Star Graffiti" data-price="$800" data-desc="Gorra all-black premium con estrella B central en cristales y detalles bordados 3D oscuros.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.3SI1cdlLYrrmDDnSlN7ptAHaF3?rs=1&pid=ImgDetMain" alt="B Star Graffiti" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">B Star Graffiti</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Gorra all-black premium con estrella B central en cristales y detalles bordados 3D oscuros.</p>
+        <a href="https://www.instagram.com/p/DTIwA9kCQoC/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">B Star Graffiti</h2>
-      <p class="product-price">$800</p>
-      <p class="product-desc">Gorra all-black premium con estrella B central en cristales y detalles bordados 3D oscuros.</p>
-      <a href="https://www.instagram.com/p/DTIwA9kCQoC/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
-    <!-- 2. Skate or Die -->
-    <div class="product-card" data-img="https://tse1.mm.bing.net/th/id/OIP.3fPpq0X9DyYhokcIF3NbMgHaHa?rs=1&pid=ImgDetMain" data-title="Skate or Die" data-price="$800" data-desc="Gorra negra con bordado 3D 'Skate or Die' destruido y texturas elevadas.">
-      <div class="product-img-wrapper">
-        <img src="https://tse1.mm.bing.net/th/id/OIP.3fPpq0X9DyYhokcIF3NbMgHaHa?rs=1&pid=ImgDetMain" alt="Skate or Die" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      <div class="product-card" data-img="https://tse1.mm.bing.net/th/id/OIP.3fPpq0X9DyYhokcIF3NbMgHaHa?rs=1&pid=ImgDetMain" data-title="Skate or Die" data-price="$800" data-desc="Gorra negra con bordado 3D 'Skate or Die' destruido y texturas elevadas.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.3fPpq0X9DyYhokcIF3NbMgHaHa?rs=1&pid=ImgDetMain" alt="Skate or Die" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Skate or Die</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Gorra negra con bordado 3D 'Skate or Die' destruido y texturas elevadas.</p>
+        <a href="https://www.instagram.com/p/DUjKpSvDCDJ/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">Skate or Die</h2>
-      <p class="product-price">$800</p>
-      <p class="product-desc">Gorra negra con bordado 3D 'Skate or Die' destruido y texturas elevadas.</p>
-      <a href="https://www.instagram.com/p/DUjKpSvDCDJ/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
-    <!-- 3. Dandy Hats x Fuerza Regida -->
-    <div class="product-card" data-img="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain" data-title="Dandy Hats x Fuerza Regida" data-price="$800" data-desc="Gorra negra desgastada con diseño exclusivo Dandy Hats x Fuerza Regida.">
-      <div class="product-img-wrapper">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain" alt="Dandy Hats x Fuerza Regida" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      <div class="product-card" data-img="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain" data-title="Dandy Hats x Fuerza Regida" data-price="$800" data-desc="Gorra negra desgastada con diseño exclusivo Dandy Hats x Fuerza Regida.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain" alt="Dandy Hats x Fuerza Regida" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Dandy Hats x Fuerza Regida</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Gorra negra desgastada con diseño exclusivo Dandy Hats x Fuerza Regida.</p>
+        <a href="https://www.instagram.com/p/DUjIwRmEvHg/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">Dandy Hats x Fuerza Regida</h2>
-      <p class="product-price">$800</p>
-      <p class="product-desc">Gorra negra desgastada con diseño exclusivo Dandy Hats x Fuerza Regida.</p>
-      <a href="https://www.instagram.com/p/DUjIwRmEvHg/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
-    <!-- 4. Jehovah -->
-    <div class="product-card" data-img="https://http2.mlstatic.com/D_NQ_NP_834412-MLM79527182320_102024-O.webp" data-title="Jehovah" data-price="$800" data-desc="Gorra negra con bordado 3D 'JEHOVAH' en estrella rosa/blanco elevado. Nueva de la mejor calidad.">
-      <div class="product-img-wrapper">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_834412-MLM79527182320_102024-O.webp" alt="Jehovah" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      <div class="product-card" data-img="https://http2.mlstatic.com/D_NQ_NP_834412-MLM79527182320_102024-O.webp" data-title="Jehovah" data-price="$800" data-desc="Gorra negra con bordado 3D 'JEHOVAH' en estrella rosa/blanco elevado. Nueva de la mejor calidad.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_834412-MLM79527182320_102024-O.webp" alt="Jehovah" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Jehovah</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Gorra negra con bordado 3D 'JEHOVAH' en estrella rosa/blanco elevado. Nueva de la mejor calidad.</p>
+        <a href="https://www.instagram.com/p/DUveE4ZCLxM/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">Jehovah</h2>
-      <p class="product-price">$800</p>
-      <p class="product-desc">Gorra negra con bordado 3D 'JEHOVAH' en estrella rosa/blanco elevado. Nueva de la mejor calidad.</p>
-      <a href="https://www.instagram.com/p/DUveE4ZCLxM/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
-    <!-- 5. Dandy Hats Plague World -->
-    <div class="product-card" data-img="https://i.ebayimg.com/images/g/-hcAAOSwhAJoXQtD/s-l500.jpg" data-title="Dandy Hats Plague World" data-price="$800" data-desc="Gorra trucker negra distressed con diseño 'Plague World' exclusivo Dandy Hats.">
-      <div class="product-img-wrapper">
-        <img src="https://i.ebayimg.com/images/g/-hcAAOSwhAJoXQtD/s-l500.jpg" alt="Dandy Hats Plague World" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      <div class="product-card" data-img="https://i.ebayimg.com/images/g/-hcAAOSwhAJoXQtD/s-l500.jpg" data-title="Dandy Hats Plague World" data-price="$800" data-desc="Gorra trucker negra distressed con diseño 'Plague World' exclusivo Dandy Hats.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://i.ebayimg.com/images/g/-hcAAOSwhAJoXQtD/s-l500.jpg" alt="Dandy Hats Plague World" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Dandy Hats Plague World</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Gorra trucker negra distressed con diseño 'Plague World' exclusivo Dandy Hats.</p>
+        <a href="https://www.instagram.com/p/DUoJH_XjFd4/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">Dandy Hats Plague World</h2>
-      <p class="product-price">$800</p>
-      <p class="product-desc">Gorra trucker negra distressed con diseño 'Plague World' exclusivo Dandy Hats.</p>
-      <a href="https://www.instagram.com/p/DUoJH_XjFd4/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
-    <!-- 6. Barbas Triple B -->
-    <div class="product-card" data-img="https://fashiontreatsmx.com/wp-content/uploads/2025/11/c201773b-651f-4f4d-b5e7-323ee3e412bf.png" data-title="Barbas Triple B" data-price="$800" data-desc="Gorra negra premium 'Barbas hats triple b' nueva, de la mejor calidad. Estilo urban agresivo.">
-      <div class="product-img-wrapper">
-        <img src="https://fashiontreatsmx.com/wp-content/uploads/2025/11/c201773b-651f-4f4d-b5e7-323ee3e412bf.png" alt="Barbas Triple B" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      <div class="product-card" data-img="https://fashiontreatsmx.com/wp-content/uploads/2025/11/c201773b-651f-4f4d-b5e7-323ee3e412bf.png" data-title="Barbas Triple B" data-price="$800" data-desc="Gorra negra premium 'Barbas hats triple b' nueva, de la mejor calidad. Estilo urban agresivo.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://fashiontreatsmx.com/wp-content/uploads/2025/11/c201773b-651f-4f4d-b5e7-323ee3e412bf.png" alt="Barbas Triple B" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Barbas Triple B</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Gorra negra premium 'Barbas hats triple b' nueva, de la mejor calidad. Estilo urban agresivo.</p>
+        <a href="https://www.instagram.com/p/DUj-NfyEbGO/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">Barbas Triple B</h2>
-      <p class="product-price">$800</p>
-      <p class="product-desc">Gorra negra premium 'Barbas hats triple b' nueva, de la mejor calidad. Estilo urban agresivo.</p>
-      <a href="https://www.instagram.com/p/DUj-NfyEbGO/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
-    <!-- 7. Black Rebel Ángel Original -->
-    <div class="product-card" data-img="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain" data-title="Black Rebel Ángel Original" data-price="$1300" data-desc="Gorra negra premium con diseño 'Black Rebel Angel' en bordado elevado y estilo rebelde/dark.">
-      <div class="product-img-wrapper">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain" alt="Black Rebel Ángel Original" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      <div class="product-card" data-img="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain" data-title="Black Rebel Ángel Original" data-price="$1300" data-desc="Gorra negra premium con diseño 'Black Rebel Angel' en bordado elevado y estilo rebelde/dark.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain" alt="Black Rebel Ángel Original" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Black Rebel Ángel Original</h2>
+        <p class="product-price">$1300</p>
+        <p class="product-desc">Gorra negra premium con diseño 'Black Rebel Angel' en bordado elevado y estilo rebelde/dark.</p>
+        <a href="https://www.instagram.com/p/DU1fKZokiLk/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">Black Rebel Ángel Original</h2>
-      <p class="product-price">$1300</p>
-      <p class="product-desc">Gorra negra premium con diseño 'Black Rebel Angel' en bordado elevado y estilo rebelde/dark.</p>
-      <a href="https://www.instagram.com/p/DU1fKZokiLk/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
-    <!-- NY Pearls -->
-    <div class="product-card" data-img="https://drop-shop.mx/cdn/shop/files/IMG-0803.jpg?v=1738382847" data-title="NY Pearls" data-price="$800" data-desc="Gorra negra premium con diseño NY Pearls en perlas elevadas y estilo urbano neoyorquino.">
-      <div class="product-img-wrapper">
-        <img src="https://drop-shop.mx/cdn/shop/files/IMG-0803.jpg?v=1738382847" alt="NY Pearls" class="product-img">
-        <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      <div class="product-card" data-img="https://drop-shop.mx/cdn/shop/files/IMG-0803.jpg?v=1738382847" data-title="NY Pearls" data-price="$800" data-desc="Gorra negra premium con diseño NY Pearls en perlas elevadas y estilo urbano neoyorquino.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="https://drop-shop.mx/cdn/shop/files/IMG-0803.jpg?v=1738382847" alt="NY Pearls" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">NY Pearls</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Gorra negra premium con diseño NY Pearls en perlas elevadas y estilo urbano neoyorquino.</p>
+        <a href="https://www.instagram.com/p/DUjZIMjkkzR/" target="_blank" class="instagram-btn">Ver en Instagram</a>
       </div>
-      <h2 class="product-title">NY Pearls</h2>
-      <p class="product-price">$800</p>
-      <p class="product-desc">Gorra negra premium con diseño NY Pearls en perlas elevadas y estilo urbano neoyorquino.</p>
-      <a href="https://www.instagram.com/p/DUjZIMjkkzR/" target="_blank" class="instagram-btn">Ver en Instagram</a>
-    </div>
 
+    </div>
+  </section>
+
+  <!-- Sección Camisetas -->
+  <section class="category" id="camisetas">
+    <h2 class="category-title">CAMISETAS</h2>
+    <div class="products">
+
+      <div class="product-card" data-img="img/chrome hearts.png" data-title="Chrome Hearts Tee" data-price="$850" data-desc="Camiseta premium con diseño Chrome Hearts clásico, estampado elevado y corte relajado. Edición limitada Honey Shop.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="img/chrome hearts.png" alt="Chrome Hearts Tee" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Chrome Hearts Tee</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Camiseta premium con diseño Chrome Hearts clásico con brillos, estampado elevado y corte relajado. Edición limitada Honey Shop.</p>
+        <a href="https://www.instagram.com/honey__shopmx" target="_blank" class="instagram-btn">Ver en Instagram</a>
+      </div>
+
+      <div class="product-card" data-img="img/chrome hearts 2.png" data-title="Chrome Hearts Oversize" data-price="$950" data-desc="Camiseta oversize negra con detalles Chrome Hearts en bordado en parte delantera y trasera. Estilo urbano exclusivo.">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="img/chrome hearts 2.png" alt="Chrome Hearts Oversize" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Chrome Hearts Oversize</h2>
+        <p class="product-price">$800</p>
+        <p class="product-desc">Camiseta oversize negra con detalles Chrome Hearts en bordado en la parte trasera y delantera. Estilo urbano exclusivo.</p>
+        <a href="https://www.instagram.com/honey__shopmx" target="_blank" class="instagram-btn">Ver en Instagram</a>
+      </div>
+
+    </div>
   </section>
 
   <!-- Modal Quick View -->
@@ -366,10 +537,10 @@
     </div>
   </div>
 
-  <!-- Botón flotante de WhatsApp con "Soporte" -->
-  <a href="https://wa.me/526461481411?text=Hola%20Honey%20Shop!" class="whatsapp-float" target="_blank">
+  <!-- Botón flotante WhatsApp con pulso -->
+  <a href="https://wa.me/526861234567?text=¡Hola!%20Quiero%20comprar%20o%20preguntar%20por%20disponibilidad" class="whatsapp-float">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12c0 2.14.7 4.11 1.87 5.69L2 22l4.31-1.87C7.89 21.3 9.86 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm.66 15.34l-.66.66-.66-.66C8.5 14.84 7 13.1 7 11c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.1-1.5 3.84-3.34 4.34z"/></svg>
-    Soporte
+    ¡Compra por WhatsApp!
   </a>
 
   <footer>
@@ -378,6 +549,10 @@
   </footer>
 
   <script>
+    window.onload = function() {
+      document.getElementById('welcomeModal').style.display = 'flex';
+    }
+
     function openModal(btn) {
       const card = btn.closest('.product-card');
       document.getElementById('modalImg').src = card.dataset.img;
@@ -393,8 +568,9 @@
 
     window.onclick = function(event) {
       if (event.target.id === 'quickModal') closeModal();
+      if (event.target.id === 'welcomeModal') document.getElementById('welcomeModal').style.display = 'none';
     }
   </script>
 </body>
-
 </html>
+
