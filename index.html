@@ -600,4 +600,100 @@
 
     </div>
   </section>
+ 
+<section class="category" id="camisetas">
+    <h2 class="category-title">CAMISETAS</h2>
+    <div class="products">
 
+      <div class="product-card" data-img="img/camiseta1.png" data-title="Camiseta Chrome Hearts" data-price="$700" data-desc="Camiseta Chrome Hearts premium - Talla L">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="img/camiseta1.png" alt="Camiseta Chrome Hearts" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Camiseta Chrome Hearts</h2>
+        <p class="product-price">$700</p>
+        <p class="product-desc">Camiseta Chrome Hearts premium - Talla L</p>
+        <a href="img/camiseta2.png" target="_blank" class="instagram-btn">Ver más fotos</a>
+      </div>
+
+      <div class="product-card" data-img="img/camiseta2.png" data-title="Camiseta Chrome Hearts" data-price="$700" data-desc="Camiseta Chrome Hearts premium - Talla L">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="img/camiseta2.png" alt="Camiseta Chrome Hearts" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Camiseta Chrome Hearts</h2>
+        <p class="product-price">$700</p>
+        <p class="product-desc">Camiseta Chrome Hearts premium - Talla L</p>
+        <a href="img/camiseta2.png" target="_blank" class="instagram-btn">Ver más fotos</a>
+      </div>
+
+      <div class="product-card" data-img="img/camiseta3.png" data-title="Camiseta Chrome Hearts" data-price="$700" data-desc="Camiseta Chrome Hearts premium - Talla XL">
+        <div class="badge-limited">Edición limitada</div>
+        <div class="product-img-wrapper">
+          <img src="img/camiseta3.png" alt="Camiseta Chrome Hearts XL" class="product-img">
+          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
+        </div>
+        <h2 class="product-title">Camiseta Chrome Hearts</h2>
+        <p class="product-price">$700</p>
+        <p class="product-desc">Camiseta Chrome Hearts premium - Talla XL</p>
+        <a href="img/camiseta3.png" target="_blank" class="instagram-btn">Ver más fotos</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modal Quick View -->
+  <div id="quickModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <img id="modalImg" class="modal-img" src="" alt="Producto">
+      <div style="padding: 30px; text-align: center;">
+        <h2 id="modalTitle" style="font-size:2.2rem; margin-bottom:10px;"></h2>
+        <p id="modalPrice" style="font-size: 2.4rem; color: var(--gold); font-weight:900; margin:15px 0;"></p>
+        <p id="modalDesc" style="color:#b0a08a; font-size:1.1rem; margin-bottom:25px;"></p>
+        <a id="modalLink" href="#" target="_blank" class="instagram-btn">Ver en Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/526461481411?text=¡Hola!%20Quiero%20información%20sobre%20un%20producto%20de%20Honey%20Shop" class="whatsapp-float">
+    <i class="fab fa-whatsapp" style="font-size:28px;"></i>
+    ¡Compra por WhatsApp!
+  </a>
+
+  <footer>
+    <p style="font-size:1.3rem; margin-bottom:10px;">HONEY SHOP - Urban Clothing Ensenada 🔥</p>
+    <p>@honey__shopmx | Envíos a todo México | Ediciones limitadas • Solo lo mejor</p>
+    <p style="margin-top:20px; font-size:0.9rem;">© 2026 Honey Shop</p>
+  </footer>
+
+  <script>
+    window.onload = () => {
+      document.getElementById('welcomeModal').style.display = 'flex';
+    };
+
+    function openModal(btn) {
+      const card = btn.closest('.product-card');
+      document.getElementById('modalImg').src = card.dataset.img;
+      document.getElementById('modalTitle').textContent = card.dataset.title;
+      document.getElementById('modalPrice').textContent = card.dataset.price;
+      document.getElementById('modalDesc').textContent = card.dataset.desc;
+      const link = card.querySelector('a');
+      if (link) document.getElementById('modalLink').href = link.href;
+      document.getElementById('quickModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('quickModal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+      if (e.target.id === 'quickModal') closeModal();
+      if (e.target.id === 'welcomeModal') document.getElementById('welcomeModal').style.display = 'none';
+    };
+  </script>
+</body>
+<html>
