@@ -1,708 +1,1112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M2PMC71D6B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HONEY SHOP • Urban Clothing Ensenada</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+:root {
+  --gold: #FFD700;
+  --gold-dim: rgba(255,215,0,0.15);
+  --gold-mid: rgba(255,215,0,0.5);
+  --dark: #0a0a0a;
+  --dark2: #111;
+  --dark3: #181818;
+  --text: #ccc;
+  --muted: #666;
+  --bebas: 'Bebas Neue', sans-serif;
+  --body: 'DM Sans', sans-serif;
+}
 
-  gtag('config', 'G-M2PMC71D6B');
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HONEY SHOP • Urban Clothing Ensenada</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    :root {
-      --gold: #d4b895;
-      --gold-light: #ffd700;
-      --dark: #0a0a0a;
-      --card: #111;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: var(--dark);
-      color: var(--gold);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: rgba(10,10,10,0.98);
-      backdrop-filter: blur(16px);
-      padding: 18px 5%;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #222;
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .logo {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--gold);
-    }
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 900;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, var(--gold), #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    nav {
-      position: fixed;
-      top: 100px;
-      left: 0;
-      width: 100%;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(12px);
-      padding: 16px 0;
-      text-align: center;
-      z-index: 999;
-      border-bottom: 1px solid #333;
-    }
-    nav a {
-      color: var(--gold-light);
-      text-decoration: none;
-      font-size: 1.55rem;
-      font-weight: 800;
-      margin: 0 35px;
-      letter-spacing: 3px;
-      padding: 10px 24px;
-      border-radius: 50px;
-      transition: all 0.4s ease;
-    }
-    nav a:hover {
-      background: rgba(212,184,149,0.12);
-      color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(255,215,0,0.3);
-    }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    .welcome-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.97);
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 20px;
-    }
-    .logo-3d {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      object-fit: cover;
-      animation: rotate3D 14s infinite linear;
-      box-shadow: 0 0 80px rgba(212,184,149,0.6);
-      border: 4px solid var(--gold);
-    }
-    @keyframes rotate3D {
-      from { transform: rotateY(0deg) rotateX(12deg); }
-      to { transform: rotateY(360deg) rotateX(12deg); }
-    }
-    .welcome-modal h2 {
-      font-size: 3.8rem;
-      margin: 30px 0 10px;
-      background: linear-gradient(90deg, var(--gold), #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+::selection { background: var(--gold); color: #000; }
 
-    .enter-btn {
-      background: var(--gold);
-      color: #000;
-      border: none;
-      padding: 16px 60px;
-      font-size: 1.6rem;
-      font-weight: 900;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.4s;
-      margin-top: 30px;
-    }
-    .enter-btn:hover {
-      background: transparent;
-      color: var(--gold);
-      border: 3px solid var(--gold);
-      transform: scale(1.1);
-    }
+html { scroll-behavior: smooth; }
 
-    section.category {
-      max-width: 1480px;
-      margin: 180px auto 80px;
-      padding: 0 30px;
-    }
-    .category-title {
-      font-size: 3rem;
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 50px;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, var(--gold), #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 40px;
-    }
-    .product-card {
-      background: var(--card);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-      border: 1px solid #222;
-      position: relative;
-    }
-    .product-card:hover {
-      transform: translateY(-20px) scale(1.04);
-      box-shadow: 0 30px 70px rgba(212,184,149,0.3);
-      border-color: var(--gold);
-    }
-    .product-img-wrapper {
-      position: relative;
-      height: 340px;
-      overflow: hidden;
-      background: #000;
-    }
-    .product-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s ease;
-    }
-    .product-card:hover .product-img {
-      transform: scale(1.12);
-    }
-    .badge-limited {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #ff2222;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 900;
-      z-index: 10;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    }
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.4s;
-      display: flex;
-      align-items: flex-end;
-      padding: 25px;
-    }
-    .product-card:hover .overlay { opacity: 1; }
+body {
+  font-family: var(--body);
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden;
+}
 
-    .quick-view-btn {
-      background: var(--gold);
-      color: #000;
-      border: none;
-      padding: 12px 32px;
-      border-radius: 50px;
-      font-weight: 900;
-      cursor: pointer;
-      width: 100%;
-      transition: all 0.3s;
-    }
-    .quick-view-btn:hover {
-      background: transparent;
-      color: var(--gold);
-      border: 2px solid var(--gold);
-    }
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-    .product-title {
-      font-size: 1.45rem;
-      margin: 18px 18px 8px;
-      color: #fff;
-      font-weight: 800;
-    }
-    .product-price {
-      font-size: 1.75rem;
-      color: var(--gold);
-      font-weight: 900;
-      margin-left: 18px;
-    }
-    .product-desc {
-      font-size: 1rem;
-      color: #b0a08a;
-      margin: 10px 18px 20px;
-      min-height: 65px;
-    }
+/* ===== WELCOME MODAL ===== */
+.welcome-modal {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  transition: opacity 0.6s ease;
+}
+.welcome-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
-    .instagram-btn {
-      display: block;
-      background: linear-gradient(45deg, var(--gold), #fff);
-      color: #000;
-      padding: 14px 30px;
-      margin: 0 18px 20px;
-      border-radius: 50px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 900;
-      transition: all 0.4s;
-    }
-    .instagram-btn:hover {
-      background: transparent;
-      color: var(--gold);
-      border: 2px solid var(--gold);
-      transform: translateY(-4px);
-    }
+.welcome-logo {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 60px rgba(255,215,0,0.3), 0 0 120px rgba(255,215,0,0.1);
+  animation: spinLogo 12s linear infinite;
+  margin-bottom: 32px;
+}
+@keyframes spinLogo {
+  from { transform: rotateY(0deg) rotateX(8deg); }
+  to   { transform: rotateY(360deg) rotateX(8deg); }
+}
 
-    .whatsapp-btn {
-      display: block;
-      background: #25D366;
-      color: white;
-      padding: 14px 30px;
-      margin: 0 18px 20px;
-      border-radius: 50px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 900;
-      transition: all 0.4s;
-    }
-    .whatsapp-btn:hover {
-      background: #128C7E;
-      transform: translateY(-4px);
-    }
+.welcome-title {
+  font-family: var(--bebas);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  letter-spacing: 10px;
+  background: linear-gradient(90deg, var(--gold), #fff 60%, var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.welcome-sub {
+  font-size: 0.9rem;
+  letter-spacing: 5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-content {
-      background: #111;
-      border-radius: 28px;
-      max-width: 820px;
-      width: 100%;
-      overflow: hidden;
-      border: 3px solid var(--gold);
-      box-shadow: 0 0 80px rgba(212,184,149,0.5);
-    }
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      font-size: 3rem;
-      color: var(--gold);
-      cursor: pointer;
-      z-index: 10;
-    }
-    .modal-img {
-      width: 100%;
-      max-height: 520px;
-      object-fit: contain;
-      background: #000;
-    }
+/* Gold divider widget */
+.divider {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin: 16px auto;
+}
+.divider .ln { width: 80px; height: 1px; }
+.divider .ln-l { background: linear-gradient(90deg, transparent, var(--gold)); }
+.divider .ln-r { background: linear-gradient(90deg, var(--gold), transparent); }
+.divider .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
 
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #25D366;
-      color: white;
-      padding: 14px 24px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      font-size: 1.05rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-      z-index: 1000;
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.12);
-      box-shadow: 0 20px 40px rgba(37,211,102,0.5);
-    }
+.enter-btn {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  padding: 16px 56px;
+  font-family: var(--bebas);
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(255,215,0,0.3);
+}
+.enter-btn:hover {
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 40px rgba(255,215,0,0.15);
+  transform: scale(1.05);
+}
 
-    footer {
-      background: #000;
-      text-align: center;
-      padding: 60px 20px 40px;
-      color: #b0a08a;
-      border-top: 1px solid #333;
-    }
+/* ===== HEADER ===== */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #1e1e1e;
+  padding: 14px 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+header::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity: 0.25;
+}
 
-    @media (max-width: 768px) {
-      h1 { font-size: 1.9rem; }
-      .category-title { font-size: 2.4rem; }
-      nav a { font-size: 1.3rem; margin: 0 15px; }
-      .products { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-      .logo-3d { width: 180px; height: 180px; }
-    }
-  </style>
+.logo-container { display: flex; align-items: center; gap: 14px; }
+.logo-img {
+  width: 56px; height: 56px;
+  border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 20px rgba(255,215,0,0.2);
+}
+.logo-text {
+  font-family: var(--bebas);
+  font-size: 2rem;
+  letter-spacing: 6px;
+  background: linear-gradient(90deg, var(--gold), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo-tagline { font-size: 0.65rem; color: var(--muted); letter-spacing: 3px; text-transform: uppercase; margin-top: -2px; }
+
+.header-right { font-size: 0.85rem; color: var(--muted); letter-spacing: 2px; }
+.header-right i { color: var(--gold); margin-right: 6px; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 84px; left: 0; right: 0; z-index: 999;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #1a1a1a;
+  display: flex; justify-content: center; gap: 8px;
+  padding: 12px 20px;
+}
+nav a {
+  font-family: var(--bebas);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 22px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+nav a:hover, nav a.active {
+  color: var(--gold);
+  border-color: var(--gold-mid);
+  background: var(--gold-dim);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 160px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}
+/* Radial glow */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.04) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+}
+/* Diagonal decorative lines */
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, transparent 45%, rgba(255,215,0,0.03) 46%, rgba(255,215,0,0.03) 47%, transparent 48%),
+    linear-gradient(135deg, transparent 55%, rgba(255,215,0,0.02) 56%, rgba(255,215,0,0.02) 57%, transparent 58%);
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem; letter-spacing: 7px; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 20px;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-title {
+  font-family: var(--bebas);
+  font-size: clamp(4rem, 12vw, 9rem);
+  letter-spacing: 12px;
+  line-height: 0.95;
+  background: linear-gradient(180deg, #fff 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.hero-sub {
+  font-family: var(--bebas);
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  letter-spacing: 8px;
+  color: var(--gold);
+  margin-top: 8px;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-desc {
+  font-size: 0.9rem; color: var(--muted); letter-spacing: 3px;
+  margin-top: 20px; text-transform: uppercase;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-ctas {
+  display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; justify-content: center;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #000;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-family: var(--bebas);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 6px 24px rgba(255,215,0,0.25);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(255,215,0,0.35); }
+
+.btn-outline {
+  border: 1px solid var(--gold-mid);
+  color: var(--gold);
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-family: var(--bebas);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: all 0.3s;
+  background: transparent;
+}
+.btn-outline:hover { background: var(--gold-dim); transform: translateY(-3px); }
+
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 60px; flex-wrap: wrap; justify-content: center;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+.stat { text-align: center; }
+.stat-num { font-family: var(--bebas); font-size: 2.2rem; color: var(--gold); letter-spacing: 2px; line-height: 1; }
+.stat-label { font-size: 0.65rem; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SECTION ===== */
+.section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 5%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-eyebrow {
+  font-size: 0.7rem; letter-spacing: 6px; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--bebas);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 8px;
+  background: linear-gradient(90deg, var(--gold), #fff 60%, var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.section-line {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 16px auto 0;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.card {
+  background: var(--dark2);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #1e1e1e;
+  transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+  position: relative;
+  group: true;
+}
+.card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(255,215,0,0.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(255,215,0,0.06);
+}
+
+.card-img-wrap {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+.card-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+  display: block;
+}
+.card:hover .card-img { transform: scale(1.08); }
+
+.card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; align-items: flex-end; padding: 20px;
+}
+.card:hover .card-overlay { opacity: 1; }
+
+.quick-btn {
+  width: 100%;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 50px;
+  font-family: var(--bebas);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.quick-btn:hover { background: #fff; }
+
+/* Badges */
+.badge {
+  position: absolute; top: 14px; right: 14px; z-index: 5;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.badge-limited { background: var(--gold); color: #000; }
+.badge-new { background: #ff3333; color: #fff; }
+
+.card-body { padding: 18px 20px 20px; }
+
+.card-brand {
+  font-size: 0.65rem; letter-spacing: 3px; color: var(--muted);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+
+.card-name {
+  font-family: var(--bebas);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.card-desc {
+  font-size: 0.8rem; color: var(--muted); line-height: 1.5;
+  margin-bottom: 14px; min-height: 36px;
+}
+
+.card-price {
+  font-family: var(--bebas);
+  font-size: 1.8rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.card-divider { height: 1px; background: #1e1e1e; margin-bottom: 14px; }
+
+.btn-ig {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(90deg, var(--gold), #fff8dc);
+  color: #000;
+  padding: 11px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--bebas);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  margin-bottom: 10px;
+}
+.btn-ig:hover { opacity: 0.85; transform: translateY(-2px); }
+
+.btn-wa {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: #25D366;
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--bebas);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
+.btn-wa:hover { background: #128C7E; transform: translateY(-2px); }
+
+/* ===== SECTION SEPARATOR ===== */
+.sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1e1e1e 20%, #1e1e1e 80%, transparent);
+  margin: 0 5%;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.93); z-index: 8000;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal.open { display: flex; }
+
+.modal-inner {
+  background: var(--dark2);
+  border-radius: 20px;
+  max-width: 780px; width: 100%;
+  border: 1px solid rgba(255,215,0,0.3);
+  box-shadow: 0 0 80px rgba(255,215,0,0.1);
+  overflow: hidden;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-close {
+  position: absolute; top: 16px; right: 20px;
+  font-size: 2.2rem; color: var(--gold);
+  cursor: pointer; z-index: 10; line-height: 1;
+  transition: transform 0.2s;
+}
+.modal-close:hover { transform: rotate(90deg); }
+
+.modal-img {
+  width: 100%; max-height: 480px;
+  object-fit: contain; background: #080808;
+  display: block;
+}
+.modal-body { padding: 28px 32px 32px; }
+.modal-brand { font-size: 0.7rem; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+.modal-title { font-family: var(--bebas); font-size: 2.2rem; letter-spacing: 3px; color: #fff; margin-bottom: 8px; }
+.modal-price { font-family: var(--bebas); font-size: 2.6rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 16px; }
+.modal-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 7000;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 50px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--bebas);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+  transition: all 0.3s;
+}
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 12px 36px rgba(37,211,102,0.4); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  border-top: 1px solid #1a1a1a;
+  padding: 60px 5% 40px;
+  text-align: center;
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity: 0.3;
+}
+.footer-logo {
+  font-family: var(--bebas);
+  font-size: 2.4rem;
+  letter-spacing: 8px;
+  background: linear-gradient(90deg, var(--gold), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+.footer-sub { font-size: 0.75rem; color: var(--muted); letter-spacing: 3px; text-transform: uppercase; line-height: 2; }
+.footer-copy { font-size: 0.7rem; color: #333; margin-top: 24px; letter-spacing: 2px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { gap: 4px; padding: 10px 12px; }
+  nav a { font-size: 0.9rem; padding: 6px 14px; letter-spacing: 2px; }
+  .hero-stats { gap: 24px; }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+}
+</style>
 </head>
 <body>
 
-  <!-- Welcome Modal -->
-  <div id="welcomeModal" class="welcome-modal">
-    <img src="img/honey.png" alt="Honey Shop" class="logo-3d">
-    <h2>Bienvenido a Honey Shop</h2>
-    <p style="font-size:1.4rem; margin:15px 0 30px;">Urban Clothing Ensenada • Ediciones Limitadas 🔥</p>
-    <button class="enter-btn" onclick="document.getElementById('welcomeModal').style.display='none'">ENTRAR A LA TIENDA</button>
+<!-- ===== WELCOME MODAL ===== -->
+<div id="welcomeModal" class="welcome-modal">
+  <img src="img/honey.png" alt="Honey Shop" class="welcome-logo"
+    onerror="this.style.display='none'">
+  <div class="welcome-title">HONEY SHOP</div>
+  <div class="divider">
+    <div class="ln ln-l"></div><div class="dot"></div><div class="ln ln-r"></div>
   </div>
-
-  <header>
-    <div class="logo-container">
-      <img src="img/logo.jpeg" alt="Honey Shop Logo" class="logo">
-      <h1>HONEY SHOP</h1>
-    </div>
-    <div style="color:var(--gold-light); font-size:1.1rem; font-weight:700;">
-      <i class="fas fa-map-marker-alt"></i> Ensenada, B.C.
-    </div>
-  </header>
-
-  <nav>
-    <a href="#gorras">GORRAS</a>
-    <a href="#preventa">PREVENTA</a>
-    <a href="#camisetas">CAMISETAS</a>
-  </nav>
-
-  <!-- ==================== GORRAS ==================== -->
-  <section class="category" id="gorras">
-    <h2 class="category-title">GORRAS</h2>
-    <div class="products">
-      <!-- Las 6 gorras completas (mantenidas igual) -->
-      <div class="product-card" data-img="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain" data-title="Rebel Ángel Black" data-price="$1200" data-desc="Gorra negra premium con diseño Rebel Ángel en bordado elevado y estilo dark/rebelde.">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain" alt="Rebel Ángel Black" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Rebel Ángel Black</h2>
-        <p class="product-price">$1200</p>
-        <p class="product-desc">Gorra negra premium con diseño Rebel Ángel en bordado elevado y estilo dark/rebelde.</p>
-        <a href="https://www.instagram.com/p/DV6vZSFEi6b/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="instagram-btn">Ver en Instagram</a>
-      </div>
-
-<div class="product-card" data-img="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain" data-title="Dandy Hats x Fuerza Regida" data-price="$650" data-desc="Gorra negra desgastada con diseño exclusivo Dandy Hats x Fuerza Regida.">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain" alt="Dandy Hats x Fuerza Regida" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Dandy Hats x Fuerza Regida</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra negra desgastada con diseño exclusivo Dandy Hats x Fuerza Regida.</p>
-        <a href="https://www.instagram.com/p/DUjIwRmEvHg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="instagram-btn">Ver en Instagram</a>
-      </div>
-
-<div class="product-card" data-img="https://i.ebayimg.com/images/g/zwkAAeSwZehpUq-~/s-l500.jpg" data-title="Dandy Hats x Sad Boys Psicodélica" data-price="$650" data-desc="Gorra con diseño psicodélico exclusivo Dandy Hats x Sad Boys.">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="https://i.ebayimg.com/images/g/zwkAAeSwZehpUq-~/s-l500.jpg" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Dandy Hats x Sad Boys Psicodélica</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra con diseño psicodélico exclusivo Dandy Hats x Sad Boys. Estilo único y llamativo.</p>
-        <a href="https://www.instagram.com/p/DV2dWStFeNh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="instagram-btn">Ver en Instagram</a>
-      </div>
-
-<div class="product-card" data-img="https://th.bing.com/th/id/R.ab9b37312a5041046a2bd301a8ce7166?rik=QDFoYsPF17Qq2w&riu=http%3a%2f%2fbpstudios.shop%2fcdn%2fshop%2ffiles%2fDiseno_sin_titulo_5d90e073-ae44-48f9-a021-7bba3b55219f.webp%3fv%3d1768076696&ehk=V%2fOVuXK5G7nkCxLZAaP5x8eKSoyxBBG0JJrnwNStAIw%3d&risl=&pid=ImgRaw&r=0" data-title="Dandy Hats x Rude Awakening Jehovah" data-price="$650" data-desc="Gorra con diseño Jehovah exclusivo de la colaboración Dandy Hats x Rude Awakening.">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="https://th.bing.com/th/id/R.ab9b37312a5041046a2bd301a8ce7166?rik=QDFoYsPF17Qq2w&riu=http%3a%2f%2fbpstudios.shop%2fcdn%2fshop%2ffiles%2fDiseno_sin_titulo_5d90e073-ae44-48f9-a021-7bba3b55219f.webp%3fv%3d1768076696&ehk=V%2fOVuXK5G7nkCxLZAaP5x8eKSoyxBBG0JJrnwNStAIw%3d&risl=&pid=ImgRaw&r=0" alt="Dandy Hats x Rude Awakening Jehovah" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Dandy Hats x Rude Awakening Jehovah</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra con diseño Jehovah exclusivo de la colaboración Dandy Hats x Rude Awakening.</p>
-        <a href="https://www.instagram.com/p/DVzF-PmEoPd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="instagram-btn">Ver en Instagram</a>
-      </div>
-
-<div class="product-card" data-img="https://th.bing.com/th/id/R.845896536e2d796be0036fe1ca61e6d2?rik=%2faAWjSMd0V8wPg&riu=http%3a%2f%2fhrcaps.com.mx%2fcdn%2fshop%2ffiles%2f44EA7C62-FABF-48A3-A6CF-96EBEED877F5.png%3fv%3d1746842033&ehk=5wNS7hB%2frX%2bnnphcmo1oaXFXdQd%2bO0sRtQYGwqkzL2o%3d&risl=&pid=ImgRaw&r=0" data-title="Barbas Hats Skate or Die" data-price="$650" data-desc="Gorra Barbas Hats con diseño Skate or Die. Estilo urbano agresivo y callejero.">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="https://th.bing.com/th/id/R.845896536e2d796be0036fe1ca61e6d2?rik=%2faAWjSMd0V8wPg&riu=http%3a%2f%2fhrcaps.com.mx%2fcdn%2fshop%2ffiles%2f44EA7C62-FABF-48A3-A6CF-96EBEED877F5.png%3fv%3d1746842033&ehk=5wNS7hB%2frX%2bnnphcmo1oaXFXdQd%2bO0sRtQYGwqkzL2o%3d&risl=&pid=ImgRaw&r=0" alt="Barbas Hats Skate or Die" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Barbas Hats Skate or Die</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Barbas Hats con diseño Skate or Die. Estilo urbano agresivo y callejero.</p>
-        <a href="https://www.instagram.com/p/DVzDsn1kmab/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="instagram-btn">Ver en Instagram</a>
-      </div>
-
-<div class="product-card" data-img="https://th.bing.com/th/id/R.bb390ca9008b2c9955585799877d741d?rik=KSNa2wpaFxZ7BA&riu=http%3a%2f%2fteddyhats.mx%2fcdn%2fshop%2ffiles%2fIMG_1535.jpg%3fv%3d1756167004&ehk=18EDsK3XkUMDOJYT2Zd0X4l2bwlC5I4apqv33FUBwJw%3d&risl=&pid=ImgRaw&r=0" data-title="Big Boss Amiri Metal Blanco" data-price="$650" data-desc="Gorra Big Boss con detalles Amiri en metal blanco. Estilo premium y llamativo.">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="https://th.bing.com/th/id/R.bb390ca9008b2c9955585799877d741d?rik=KSNa2wpaFxZ7BA&riu=http%3a%2f%2fteddyhats.mx%2fcdn%2fshop%2ffiles%2fIMG_1535.jpg%3fv%3d1756167004&ehk=18EDsK3XkUMDOJYT2Zd0X4l2bwlC5I4apqv33FUBwJw%3d&risl=&pid=ImgRaw&r=0" alt="Big Boss Amiri Metal Blanco" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Big Boss Amiri Metal Blanco</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Big Boss con detalles Amiri en metal blanco. Estilo premium y llamativo.</p>
-        <a href="https://www.instagram.com/p/DV2hEEvlXPS/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="instagram-btn">Ver en Instagram</a>
-      </div>
-
+  <div class="welcome-sub">Urban Clothing · Ensenada B.C. · Ediciones Limitadas</div>
+  <button class="enter-btn" onclick="enterSite()">ENTRAR A LA TIENDA</button>
 </div>
-  </section>
 
-      <!-- Las otras 5 gorras siguen igual (omito repetición por espacio, pero están incluidas en el código completo) -->
-    </div>
-  </section>
-
-  <!-- ==================== PREVENTA GORRAS ==================== -->
-<section class="category" id="preventa">
-    <h2 class="category-title" style="background: linear-gradient(90deg, #ff4444, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-      PREVENTA GORRAS
-    </h2>
-    <p style="text-align:center; color:#b0a08a; font-size:1.2rem; margin-bottom:40px;">
-      Reserva tu edición limitada antes que nadie • Envío al confirmar pago
-    </p>
-    <div class="products">
-
-      <div class="product-card" data-img="https://th.bing.com/th/id/R.17c9781106670128c4db5a3de74c8c23?rik=kyY6NwHBk1lY2w&riu=http%3a%2f%2fcapcorp.mx%2fcdn%2fshop%2ffiles%2fDSC07212.jpg%3fv%3d1755909703&ehk=TAbAArmyT%2bB1i32GheSc3n4DUitiQjqPqV5DRvS%2fhZg%3d&risl=&pid=ImgRaw&r=0" data-title="Barbas Hats x CT Galaxy" data-price="$650" data-desc="Gorra Barbas Hats colaboración con CT Galaxy.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://th.bing.com/th/id/R.17c9781106670128c4db5a3de74c8c23?rik=kyY6NwHBk1lY2w&riu=http%3a%2f%2fcapcorp.mx%2fcdn%2fshop%2ffiles%2fDSC07212.jpg%3fv%3d1755909703&ehk=TAbAArmyT%2bB1i32GheSc3n4DUitiQjqPqV5DRvS%2fhZg%3d&risl=&pid=ImgRaw&r=0" alt="Barbas Hats x CT Galaxy" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Barbas Hats x CT Galaxy</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Barbas Hats colaboración con CT Galaxy. Edición exclusiva en preventa.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20Barbas%20Hats%20x%20CT%20Galaxy%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://elpuntocaps.com/cdn/shop/files/WhatsApp_Image_2025-08-19_at_6.54.44_PM.jpg?v=1755655172&width=1445" data-title="InneDit Muratravis Electric" data-price="$650" data-desc="Gorra InneDit con diseño Muratravis Electric.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://elpuntocaps.com/cdn/shop/files/WhatsApp_Image_2025-08-19_at_6.54.44_PM.jpg?v=1755655172&width=1445" alt="InneDit Muratravis Electric" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">InneDit Muratravis Electric</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra InneDit con diseño Muratravis Electric. Estilo único en preventa.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20InneDit%20Muratravis%20Electric%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://shoeplugmx.com/cdn/shop/files/A3ED09F2-1D48-4E54-AF90-5340CB164247.webp?v=1750824518&width=1946" data-title="Rude Awakening La Última Cena" data-price="$650" data-desc="Gorra Rude Awakening con diseño La Última Cena.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://shoeplugmx.com/cdn/shop/files/A3ED09F2-1D48-4E54-AF90-5340CB164247.webp?v=1750824518&width=1946" alt="Rude Awakening La Última Cena" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Rude Awakening La Última Cena</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Rude Awakening con diseño La Última Cena. Edición limitada en preventa.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20Rude%20Awakening%20La%20Última%20Cena%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://shoeplugmx.com/cdn/shop/files/A3ED09F2-1D48-4E54-AF90-5340CB164247.webp?v=1750824518&width=1946" data-title="Dandy Hats x Sad Boys Ángel Azul" data-price="$650" data-desc="Gorra Dandy Hats x Sad Boys con diseño Ángel Azul.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://www.hatsmexico.mx/cdn/shop/files/E848CB7F-1E91-4F4A-BA8C-FF25426A343A.webp?v=1734576009&width=1946" alt="Dandy Hats x Sad Boys Ángel Azul" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Dandy Hats x Sad Boys Ángel Azul</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Dandy Hats x Sad Boys con diseño Ángel Azul.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20Dandy%20Hats%20x%20Sad%20Boys%20Ángel%20Azul%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://http2.mlstatic.com/D_NQ_NP_816954-MLM82530856795_022025-O-gorra-dandy-hats-x-junior-h-sad-boyz-original.webp" data-title="Dandy Hats x Sad Boys" data-price="$650" data-desc="Gorra Dandy Hats x Sad Boys edición especial.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://http2.mlstatic.com/D_NQ_NP_816954-MLM82530856795_022025-O-gorra-dandy-hats-x-junior-h-sad-boyz-original.webp" alt="Dandy Hats x Sad Boys" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Dandy Hats x Sad Boys</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Dandy Hats x Sad Boys edición especial.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20Dandy%20Hats%20x%20Sad%20Boys%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://7hats.mx/cdn/shop/files/IMG_1714.jpg?v=1740953815&width=1100" data-title="31 Hats NY Flames" data-price="$650" data-desc="Gorra 31 Hats con diseño NY Flames.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://7hats.mx/cdn/shop/files/IMG_1714.jpg?v=1740953815&width=1100" alt="31 Hats NY Flames" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">31 Hats NY Flames</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra 31 Hats con diseño NY Flames.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%2031%20Hats%20NY%20Flames%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://capline.com.mx/cdn/shop/files/IMG-1406.png?v=1755580695&width=1445" data-title="Barbas Hats x CT Murakami" data-price="$650" data-desc="Gorra Barbas Hats colaboración CT Murakami.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://capline.com.mx/cdn/shop/files/IMG-1406.png?v=1755580695&width=1445" alt="Barbas Hats x CT Murakami" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Barbas Hats x CT Murakami</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Barbas Hats colaboración CT Murakami.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20Barbas%20Hats%20x%20CT%20Murakami%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://tse1.mm.bing.net/th/id/OIP.E9U48Z8SWyn4siaM9-GSyQHaJE?rs=1&pid=ImgDetMain" data-title="Dandy Hats x Tombochio FOLL ALL OUR HATERS" data-price="$650" data-desc="Gorra Dandy Hats x Tombochio con frase FOLL ALL OUR HATERS.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://tse1.mm.bing.net/th/id/OIP.E9U48Z8SWyn4siaM9-GSyQHaJE?rs=1&pid=ImgDetMain" alt="Dandy Hats x Tombochio" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Dandy Hats x Tombochio FOLL ALL OUR HATERS</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Dandy Hats x Tombochio con frase FOLL ALL OUR HATERS.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20Dandy%20Hats%20x%20Tombochio%20FOLL%20ALL%20OUR%20HATERS%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://tse2.mm.bing.net/th/id/OIP.THyROsHDSTM3eNy0Q_cnIgHaHa?rs=1&pid=ImgDetMain" data-title="31 Hats El Mago Total Black" data-price="$650" data-desc="Gorra 31 Hats El Mago en versión Total Black.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://tse2.mm.bing.net/th/id/OIP.THyROsHDSTM3eNy0Q_cnIgHaHa?rs=1&pid=ImgDetMain" alt="31 Hats El Mago Total Black" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">31 Hats El Mago Total Black</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra 31 Hats El Mago en versión Total Black.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%2031%20Hats%20El%20Mago%20Total%20Black%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-      <div class="product-card" data-img="https://7hats.mx/cdn/shop/files/IMG_1911.jpg?v=1752814943&width=246" data-title="Barbas Hats x CT Chrome" data-price="$650" data-desc="Gorra Barbas Hats x CT con acabado Chrome.">
-        <div class="badge-limited" style="background:#ff8800;">PREVENTA</div>
-        <div class="product-img-wrapper">
-          <img src="https://7hats.mx/cdn/shop/files/IMG_1911.jpg?v=1752814943&width=246" alt="Barbas Hats x CT Chrome" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Barbas Hats x CT Chrome</h2>
-        <p class="product-price">$650</p>
-        <p class="product-desc">Gorra Barbas Hats x CT con acabado Chrome.</p>
-        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20reservar%20la%20gora%20Barbas%20Hats%20x%20CT%20Chrome%20($650)" class="whatsapp-btn">Obtener por WhatsApp</a>
-      </div>
-
-    </div>
-  </section>
- 
-<section class="category" id="camisetas">
-    <h2 class="category-title">CAMISETAS</h2>
-    <div class="products">
-
-      <div class="product-card" data-img="img/camiseta1.png" data-title="Camiseta Chrome Hearts" data-price="$700" data-desc="Camiseta Chrome Hearts premium - Talla L">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="img/camiseta1.png" alt="Camiseta Chrome Hearts" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Camiseta Chrome Hearts</h2>
-        <p class="product-price">$700</p>
-        <p class="product-desc">Camiseta Chrome Hearts premium - Talla L</p>
-        <a href="img/camiseta2.png" target="_blank" class="instagram-btn">Ver más fotos</a>
-      </div>
-
-      <div class="product-card" data-img="img/camiseta2.png" data-title="Camiseta Chrome Hearts" data-price="$700" data-desc="Camiseta Chrome Hearts premium - Talla L">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="img/camiseta2.png" alt="Camiseta Chrome Hearts" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Camiseta Chrome Hearts</h2>
-        <p class="product-price">$700</p>
-        <p class="product-desc">Camiseta Chrome Hearts premium - Talla L</p>
-        <a href="img/camiseta2.png" target="_blank" class="instagram-btn">Ver más fotos</a>
-      </div>
-
-      <div class="product-card" data-img="img/camiseta3.png" data-title="Camiseta Chrome Hearts" data-price="$700" data-desc="Camiseta Chrome Hearts premium - Talla XL">
-        <div class="badge-limited">Edición limitada</div>
-        <div class="product-img-wrapper">
-          <img src="img/camiseta3.png" alt="Camiseta Chrome Hearts XL" class="product-img">
-          <div class="overlay"><button class="quick-view-btn" onclick="openModal(this)">Vista Rápida</button></div>
-        </div>
-        <h2 class="product-title">Camiseta Chrome Hearts</h2>
-        <p class="product-price">$700</p>
-        <p class="product-desc">Camiseta Chrome Hearts premium - Talla XL</p>
-        <a href="img/camiseta3.png" target="_blank" class="instagram-btn">Ver más fotos</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Modal Quick View -->
-  <div id="quickModal" class="modal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal()">×</span>
-      <img id="modalImg" class="modal-img" src="" alt="Producto">
-      <div style="padding: 30px; text-align: center;">
-        <h2 id="modalTitle" style="font-size:2.2rem; margin-bottom:10px;"></h2>
-        <p id="modalPrice" style="font-size: 2.4rem; color: var(--gold); font-weight:900; margin:15px 0;"></p>
-        <p id="modalDesc" style="color:#b0a08a; font-size:1.1rem; margin-bottom:25px;"></p>
-        <a id="modalLink" href="#" target="_blank" class="instagram-btn">Ver en Instagram</a>
-      </div>
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="logo-container">
+    <img src="img/logo.jpeg" alt="Honey Shop" class="logo-img"
+      onerror="this.style.display='none'">
+    <div>
+      <div class="logo-text">HONEY SHOP</div>
+      <div class="logo-tagline">Urban Clothing · Ensenada</div>
     </div>
   </div>
+  <div class="header-right">
+    <i class="fas fa-map-marker-alt"></i>Ensenada, B.C.
+  </div>
+</header>
 
-  <!-- WhatsApp flotante -->
-  <a href="https://wa.me/526461481411?text=¡Hola!%20Quiero%20información%20sobre%20un%20producto%20de%20Honey%20Shop" class="whatsapp-float">
-    <i class="fab fa-whatsapp" style="font-size:28px;"></i>
-    ¡Compra por WhatsApp!
-  </a>
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="#gorras" class="active">GORRAS</a>
+  <a href="#camisetas">CAMISETAS</a>
+</nav>
 
-  <footer>
-    <p style="font-size:1.3rem; margin-bottom:10px;">HONEY SHOP - Urban Clothing Ensenada 🔥</p>
-    <p>@honey__shopmx | Envíos a todo México | Ediciones limitadas • Solo lo mejor</p>
-    <p style="margin-top:20px; font-size:0.9rem;">© 2026 Honey Shop</p>
-  </footer>
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">✦ Edición Limitada · Solo lo Mejor ✦</div>
+  <div class="hero-title">HONEY<br>SHOP</div>
+  <div class="hero-sub">Urban Clothing</div>
+  <div class="hero-desc">Ensenada, B.C. · Envíos a todo México</div>
+  <div class="hero-ctas">
+    <a href="#gorras" class="btn-primary">Ver Gorras</a>
+    <a href="#camisetas" class="btn-outline">Ver Camisetas</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">16+</div><div class="stat-label">Modelos</div></div>
+    <div class="stat"><div class="stat-num">$550</div><div class="stat-label">Gorras desde</div></div>
+    <div class="stat"><div class="stat-num">$700</div><div class="stat-label">Camisetas desde</div></div>
+    <div class="stat"><div class="stat-num">MX</div><div class="stat-label">Envíos</div></div>
+  </div>
+</section>
 
-  <script>
-    window.onload = () => {
-      document.getElementById('welcomeModal').style.display = 'flex';
-    };
+<div class="sep"></div>
 
-    function openModal(btn) {
-      const card = btn.closest('.product-card');
-      document.getElementById('modalImg').src = card.dataset.img;
-      document.getElementById('modalTitle').textContent = card.dataset.title;
-      document.getElementById('modalPrice').textContent = card.dataset.price;
-      document.getElementById('modalDesc').textContent = card.dataset.desc;
-      const link = card.querySelector('a');
-      if (link) document.getElementById('modalLink').href = link.href;
-      document.getElementById('quickModal').style.display = 'flex';
-    }
+<!-- ===== GORRAS ===== -->
+<section class="section" id="gorras">
+  <div class="section-header">
+    <div class="section-eyebrow">Colección Disponible</div>
+    <div class="section-title">GORRAS</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="products-grid">
 
-    function closeModal() {
-      document.getElementById('quickModal').style.display = 'none';
-    }
+    <!-- 1 -->
+    <div class="card"
+      data-img="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain"
+      data-title="Rebel Ángel Black" data-price="$1,200" data-brand="Edición Limitada"
+      data-desc="Gorra negra premium con diseño Rebel Ángel en bordado elevado y estilo dark/rebelde.">
+      <div class="card-img-wrap">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.h2pQZ1Y8k55sgqrznLhzyAHaGT?rs=1&pid=ImgDetMain" alt="Rebel Ángel Black" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Edición Limitada</div>
+        <div class="card-name">Rebel Ángel Black</div>
+        <div class="card-desc">Gorra negra premium con diseño Rebel Ángel en bordado elevado.</div>
+        <div class="card-price">$1,200</div>
+        <div class="card-divider"></div>
+        <a href="https://www.instagram.com/p/DV6vZSFEi6b/" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i>Ver en Instagram</a>
+      </div>
+    </div>
 
-    window.onclick = function(e) {
-      if (e.target.id === 'quickModal') closeModal();
-      if (e.target.id === 'welcomeModal') document.getElementById('welcomeModal').style.display = 'none';
-    };
-  </script>
+    <!-- 2 -->
+    <div class="card"
+      data-img="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain"
+      data-title="Dandy Hats x Fuerza Regida" data-price="$650" data-brand="Dandy Hats"
+      data-desc="Gorra negra desgastada con diseño exclusivo Dandy Hats x Fuerza Regida.">
+      <div class="card-img-wrap">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.LlYkZ4wd-POc6oCudw_FkwHaHa?rs=1&pid=ImgDetMain" alt="Dandy Hats x Fuerza Regida" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Dandy Hats</div>
+        <div class="card-name">Dandy Hats x Fuerza Regida</div>
+        <div class="card-desc">Gorra negra desgastada con diseño exclusivo colaboración Fuerza Regida.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://www.instagram.com/p/DUjIwRmEvHg/" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i>Ver en Instagram</a>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card"
+      data-img="https://i.ebayimg.com/images/g/zwkAAeSwZehpUq-~/s-l500.jpg"
+      data-title="Dandy Hats x Sad Boys Psicodélica" data-price="$650" data-brand="Dandy Hats"
+      data-desc="Gorra con diseño psicodélico exclusivo Dandy Hats x Sad Boys. Estilo único y llamativo.">
+      <div class="card-img-wrap">
+        <img src="https://i.ebayimg.com/images/g/zwkAAeSwZehpUq-~/s-l500.jpg" alt="Dandy Hats x Sad Boys Psicodélica" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Dandy Hats</div>
+        <div class="card-name">Dandy Hats x Sad Boys Psicodélica</div>
+        <div class="card-desc">Gorra con diseño psicodélico exclusivo Dandy Hats x Sad Boys.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://www.instagram.com/p/DV2dWStFeNh/" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i>Ver en Instagram</a>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card"
+      data-img="https://th.bing.com/th/id/R.ab9b37312a5041046a2bd301a8ce7166?rik=QDFoYsPF17Qq2w&riu=http%3a%2f%2fbpstudios.shop%2fcdn%2fshop%2ffiles%2fDiseno_sin_titulo_5d90e073-ae44-48f9-a021-7bba3b55219f.webp%3fv%3d1768076696&ehk=V%2fOVuXK5G7nkCxLZAaP5x8eKSoyxBBG0JJrnwNStAIw%3d&risl=&pid=ImgRaw&r=0"
+      data-title="Dandy Hats x Rude Awakening Jehovah" data-price="$650" data-brand="Dandy Hats"
+      data-desc="Gorra con diseño Jehovah exclusivo de la colaboración Dandy Hats x Rude Awakening.">
+      <div class="card-img-wrap">
+        <img src="https://th.bing.com/th/id/R.ab9b37312a5041046a2bd301a8ce7166?rik=QDFoYsPF17Qq2w&riu=http%3a%2f%2fbpstudios.shop%2fcdn%2fshop%2ffiles%2fDiseno_sin_titulo_5d90e073-ae44-48f9-a021-7bba3b55219f.webp%3fv%3d1768076696&ehk=V%2fOVuXK5G7nkCxLZAaP5x8eKSoyxBBG0JJrnwNStAIw%3d&risl=&pid=ImgRaw&r=0" alt="Dandy Hats x Rude Awakening Jehovah" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Dandy Hats x Rude Awakening</div>
+        <div class="card-name">Jehovah</div>
+        <div class="card-desc">Gorra con diseño Jehovah exclusivo colaboración Dandy Hats x Rude Awakening.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://www.instagram.com/p/DVzF-PmEoPd/" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i>Ver en Instagram</a>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card"
+      data-img="https://th.bing.com/th/id/R.845896536e2d796be0036fe1ca61e6d2?rik=%2faAWjSMd0V8wPg&riu=http%3a%2f%2fhrcaps.com.mx%2fcdn%2fshop%2ffiles%2f44EA7C62-FABF-48A3-A6CF-96EBEED877F5.png%3fv%3d1746842033&ehk=5wNS7hB%2frX%2bnnphcmo1oaXFXdQd%2bO0sRtQYGwqkzL2o%3d&risl=&pid=ImgRaw&r=0"
+      data-title="Barbas Hats Skate or Die" data-price="$650" data-brand="Barbas Hats"
+      data-desc="Gorra Barbas Hats con diseño Skate or Die. Estilo urbano agresivo y callejero.">
+      <div class="card-img-wrap">
+        <img src="https://th.bing.com/th/id/R.845896536e2d796be0036fe1ca61e6d2?rik=%2faAWjSMd0V8wPg&riu=http%3a%2f%2fhrcaps.com.mx%2fcdn%2fshop%2ffiles%2f44EA7C62-FABF-48A3-A6CF-96EBEED877F5.png%3fv%3d1746842033&ehk=5wNS7hB%2frX%2bnnphcmo1oaXFXdQd%2bO0sRtQYGwqkzL2o%3d&risl=&pid=ImgRaw&r=0" alt="Barbas Hats Skate or Die" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Barbas Hats</div>
+        <div class="card-name">Skate or Die</div>
+        <div class="card-desc">Gorra Barbas Hats con diseño Skate or Die. Estilo urbano agresivo y callejero.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://www.instagram.com/p/DVzDsn1kmab/" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i>Ver en Instagram</a>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card"
+      data-img="https://th.bing.com/th/id/R.bb390ca9008b2c9955585799877d741d?rik=KSNa2wpaFxZ7BA&riu=http%3a%2f%2fteddyhats.mx%2fcdn%2fshop%2ffiles%2fIMG_1535.jpg%3fv%3d1756167004&ehk=18EDsK3XkUMDOJYT2Zd0X4l2bwlC5I4apqv33FUBwJw%3d&risl=&pid=ImgRaw&r=0"
+      data-title="Big Boss Amiri Metal Blanco" data-price="$650" data-brand="Big Boss"
+      data-desc="Gorra Big Boss con detalles Amiri en metal blanco. Estilo premium y llamativo.">
+      <div class="card-img-wrap">
+        <img src="https://th.bing.com/th/id/R.bb390ca9008b2c9955585799877d741d?rik=KSNa2wpaFxZ7BA&riu=http%3a%2f%2fteddyhats.mx%2fcdn%2fshop%2ffiles%2fIMG_1535.jpg%3fv%3d1756167004&ehk=18EDsK3XkUMDOJYT2Zd0X4l2bwlC5I4apqv33FUBwJw%3d&risl=&pid=ImgRaw&r=0" alt="Big Boss Amiri Metal Blanco" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Big Boss</div>
+        <div class="card-name">Amiri Metal Blanco</div>
+        <div class="card-desc">Gorra Big Boss con detalles Amiri en metal blanco. Estilo premium y llamativo.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://www.instagram.com/p/DV2hEEvlXPS/" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i>Ver en Instagram</a>
+      </div>
+    </div>
+
+    <!-- 7 — ex-preventa: Barbas Hats x CT Galaxy -->
+    <div class="card"
+      data-img="https://th.bing.com/th/id/R.17c9781106670128c4db5a3de74c8c23?rik=kyY6NwHBk1lY2w&riu=http%3a%2f%2fcapcorp.mx%2fcdn%2fshop%2ffiles%2fDSC07212.jpg%3fv%3d1755909703&ehk=TAbAArmyT%2bB1i32GheSc3n4DUitiQjqPqV5DRvS%2fhZg%3d&risl=&pid=ImgRaw&r=0"
+      data-title="Barbas Hats x CT Galaxy" data-price="$650" data-brand="Barbas Hats"
+      data-desc="Gorra Barbas Hats colaboración con CT Galaxy. Edición exclusiva.">
+      <div class="card-img-wrap">
+        <img src="https://th.bing.com/th/id/R.17c9781106670128c4db5a3de74c8c23?rik=kyY6NwHBk1lY2w&riu=http%3a%2f%2fcapcorp.mx%2fcdn%2fshop%2ffiles%2fDSC07212.jpg%3fv%3d1755909703&ehk=TAbAArmyT%2bB1i32GheSc3n4DUitiQjqPqV5DRvS%2fhZg%3d&risl=&pid=ImgRaw&r=0" alt="Barbas Hats x CT Galaxy" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Barbas Hats</div>
+        <div class="card-name">CT Galaxy</div>
+        <div class="card-desc">Gorra Barbas Hats colaboración con CT Galaxy. Edición exclusiva.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20Barbas%20Hats%20x%20CT%20Galaxy%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 8 — ex-preventa: InneDit Muratravis Electric -->
+    <div class="card"
+      data-img="https://elpuntocaps.com/cdn/shop/files/WhatsApp_Image_2025-08-19_at_6.54.44_PM.jpg?v=1755655172&width=1445"
+      data-title="InneDit Muratravis Electric" data-price="$650" data-brand="InneDit"
+      data-desc="Gorra InneDit con diseño Muratravis Electric. Estilo único y llamativo.">
+      <div class="card-img-wrap">
+        <img src="https://elpuntocaps.com/cdn/shop/files/WhatsApp_Image_2025-08-19_at_6.54.44_PM.jpg?v=1755655172&width=1445" alt="InneDit Muratravis Electric" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">InneDit</div>
+        <div class="card-name">Muratravis Electric</div>
+        <div class="card-desc">Gorra InneDit con diseño Muratravis Electric. Estilo único y llamativo.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20InneDit%20Muratravis%20Electric%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 9 — ex-preventa: Rude Awakening La Última Cena -->
+    <div class="card"
+      data-img="https://shoeplugmx.com/cdn/shop/files/A3ED09F2-1D48-4E54-AF90-5340CB164247.webp?v=1750824518&width=1946"
+      data-title="Rude Awakening La Última Cena" data-price="$650" data-brand="Rude Awakening"
+      data-desc="Gorra Rude Awakening con diseño La Última Cena. Edición limitada.">
+      <div class="card-img-wrap">
+        <img src="https://shoeplugmx.com/cdn/shop/files/A3ED09F2-1D48-4E54-AF90-5340CB164247.webp?v=1750824518&width=1946" alt="Rude Awakening La Última Cena" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Rude Awakening</div>
+        <div class="card-name">La Última Cena</div>
+        <div class="card-desc">Gorra Rude Awakening con diseño La Última Cena. Edición limitada.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20Rude%20Awakening%20La%20Última%20Cena%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 10 — ex-preventa: Dandy Hats x Sad Boys Ángel Azul -->
+    <div class="card"
+      data-img="https://www.hatsmexico.mx/cdn/shop/files/E848CB7F-1E91-4F4A-BA8C-FF25426A343A.webp?v=1734576009&width=1946"
+      data-title="Dandy Hats x Sad Boys Ángel Azul" data-price="$650" data-brand="Dandy Hats"
+      data-desc="Gorra Dandy Hats x Sad Boys con diseño Ángel Azul.">
+      <div class="card-img-wrap">
+        <img src="https://www.hatsmexico.mx/cdn/shop/files/E848CB7F-1E91-4F4A-BA8C-FF25426A343A.webp?v=1734576009&width=1946" alt="Dandy Hats x Sad Boys Ángel Azul" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Dandy Hats</div>
+        <div class="card-name">Sad Boys Ángel Azul</div>
+        <div class="card-desc">Gorra Dandy Hats x Sad Boys con diseño Ángel Azul.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20Dandy%20Hats%20x%20Sad%20Boys%20Ángel%20Azul%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 11 — ex-preventa: Dandy Hats x Sad Boys -->
+    <div class="card"
+      data-img="https://http2.mlstatic.com/D_NQ_NP_816954-MLM82530856795_022025-O-gorra-dandy-hats-x-junior-h-sad-boyz-original.webp"
+      data-title="Dandy Hats x Sad Boys" data-price="$650" data-brand="Dandy Hats"
+      data-desc="Gorra Dandy Hats x Sad Boys edición especial.">
+      <div class="card-img-wrap">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_816954-MLM82530856795_022025-O-gorra-dandy-hats-x-junior-h-sad-boyz-original.webp" alt="Dandy Hats x Sad Boys" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Dandy Hats</div>
+        <div class="card-name">Sad Boys</div>
+        <div class="card-desc">Gorra Dandy Hats x Sad Boys edición especial.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20Dandy%20Hats%20x%20Sad%20Boys%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 12 — ex-preventa: 31 Hats NY Flames -->
+    <div class="card"
+      data-img="https://7hats.mx/cdn/shop/files/IMG_1714.jpg?v=1740953815&width=1100"
+      data-title="31 Hats NY Flames" data-price="$650" data-brand="31 Hats"
+      data-desc="Gorra 31 Hats con diseño NY Flames.">
+      <div class="card-img-wrap">
+        <img src="https://7hats.mx/cdn/shop/files/IMG_1714.jpg?v=1740953815&width=1100" alt="31 Hats NY Flames" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">31 Hats</div>
+        <div class="card-name">NY Flames</div>
+        <div class="card-desc">Gorra 31 Hats con diseño NY Flames.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%2031%20Hats%20NY%20Flames%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 13 — ex-preventa: Barbas Hats x CT Murakami -->
+    <div class="card"
+      data-img="https://capline.com.mx/cdn/shop/files/IMG-1406.png?v=1755580695&width=1445"
+      data-title="Barbas Hats x CT Murakami" data-price="$650" data-brand="Barbas Hats"
+      data-desc="Gorra Barbas Hats colaboración CT Murakami.">
+      <div class="card-img-wrap">
+        <img src="https://capline.com.mx/cdn/shop/files/IMG-1406.png?v=1755580695&width=1445" alt="Barbas Hats x CT Murakami" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Barbas Hats</div>
+        <div class="card-name">CT Murakami</div>
+        <div class="card-desc">Gorra Barbas Hats colaboración CT Murakami.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20Barbas%20Hats%20x%20CT%20Murakami%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 14 — ex-preventa: Dandy Hats x Tombochio -->
+    <div class="card"
+      data-img="https://tse1.mm.bing.net/th/id/OIP.E9U48Z8SWyn4siaM9-GSyQHaJE?rs=1&pid=ImgDetMain"
+      data-title="Dandy Hats x Tombochio FOLL ALL OUR HATERS" data-price="$650" data-brand="Dandy Hats"
+      data-desc="Gorra Dandy Hats x Tombochio con frase FOLL ALL OUR HATERS.">
+      <div class="card-img-wrap">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.E9U48Z8SWyn4siaM9-GSyQHaJE?rs=1&pid=ImgDetMain" alt="Dandy Hats x Tombochio" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Dandy Hats x Tombochio</div>
+        <div class="card-name">FOLL ALL OUR HATERS</div>
+        <div class="card-desc">Gorra Dandy Hats x Tombochio con frase FOLL ALL OUR HATERS.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20Dandy%20Hats%20x%20Tombochio%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 15 — ex-preventa: 31 Hats El Mago Total Black -->
+    <div class="card"
+      data-img="https://tse2.mm.bing.net/th/id/OIP.THyROsHDSTM3eNy0Q_cnIgHaHa?rs=1&pid=ImgDetMain"
+      data-title="31 Hats El Mago Total Black" data-price="$650" data-brand="31 Hats"
+      data-desc="Gorra 31 Hats El Mago en versión Total Black.">
+      <div class="card-img-wrap">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.THyROsHDSTM3eNy0Q_cnIgHaHa?rs=1&pid=ImgDetMain" alt="31 Hats El Mago Total Black" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">31 Hats</div>
+        <div class="card-name">El Mago Total Black</div>
+        <div class="card-desc">Gorra 31 Hats El Mago en versión Total Black.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%2031%20Hats%20El%20Mago%20Total%20Black%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 16 — ex-preventa: Barbas Hats x CT Chrome -->
+    <div class="card"
+      data-img="https://7hats.mx/cdn/shop/files/IMG_1911.jpg?v=1752814943&width=246"
+      data-title="Barbas Hats x CT Chrome" data-price="$650" data-brand="Barbas Hats"
+      data-desc="Gorra Barbas Hats x CT con acabado Chrome.">
+      <div class="card-img-wrap">
+        <img src="https://7hats.mx/cdn/shop/files/IMG_1911.jpg?v=1752814943&width=246" alt="Barbas Hats x CT Chrome" class="card-img">
+        <div class="badge badge-new">Nuevo</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Barbas Hats</div>
+        <div class="card-name">CT Chrome</div>
+        <div class="card-desc">Gorra Barbas Hats x CT con acabado Chrome.</div>
+        <div class="card-price">$650</div>
+        <div class="card-divider"></div>
+        <a href="https://wa.me/526461481411?text=Hola,%20quiero%20la%20gorra%20Barbas%20Hats%20x%20CT%20Chrome%20($650)" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>Comprar por WhatsApp</a>
+      </div>
+    </div>
+
+  </div><!-- /products-grid -->
+</section>
+
+<div class="sep"></div>
+
+<!-- ===== CAMISETAS ===== -->
+<section class="section" id="camisetas">
+  <div class="section-header">
+    <div class="section-eyebrow">Colección Premium</div>
+    <div class="section-title">CAMISETAS</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="products-grid">
+
+    <div class="card"
+      data-img="img/camiseta1.png"
+      data-title="Camiseta Chrome Hearts" data-price="$700" data-brand="Chrome Hearts"
+      data-desc="Camiseta Chrome Hearts premium · Talla L">
+      <div class="card-img-wrap">
+        <img src="img/camiseta1.png" alt="Camiseta Chrome Hearts" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Chrome Hearts</div>
+        <div class="card-name">Camiseta Premium</div>
+        <div class="card-desc">Camiseta Chrome Hearts premium · Talla L</div>
+        <div class="card-price">$700</div>
+        <div class="card-divider"></div>
+        <a href="img/camiseta2.png" target="_blank" class="btn-ig"><i class="fas fa-image"></i>Ver más fotos</a>
+      </div>
+    </div>
+
+    <div class="card"
+      data-img="img/camiseta2.png"
+      data-title="Camiseta Chrome Hearts" data-price="$700" data-brand="Chrome Hearts"
+      data-desc="Camiseta Chrome Hearts premium · Talla L">
+      <div class="card-img-wrap">
+        <img src="img/camiseta2.png" alt="Camiseta Chrome Hearts" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Chrome Hearts</div>
+        <div class="card-name">Camiseta Premium</div>
+        <div class="card-desc">Camiseta Chrome Hearts premium · Talla L</div>
+        <div class="card-price">$700</div>
+        <div class="card-divider"></div>
+        <a href="img/camiseta2.png" target="_blank" class="btn-ig"><i class="fas fa-image"></i>Ver más fotos</a>
+      </div>
+    </div>
+
+    <div class="card"
+      data-img="img/camiseta3.png"
+      data-title="Camiseta Chrome Hearts XL" data-price="$700" data-brand="Chrome Hearts"
+      data-desc="Camiseta Chrome Hearts premium · Talla XL">
+      <div class="card-img-wrap">
+        <img src="img/camiseta3.png" alt="Camiseta Chrome Hearts XL" class="card-img">
+        <div class="badge badge-limited">Edición Limitada</div>
+        <div class="card-overlay"><button class="quick-btn" onclick="openModal(this)">Vista Rápida</button></div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">Chrome Hearts</div>
+        <div class="card-name">Camiseta Premium XL</div>
+        <div class="card-desc">Camiseta Chrome Hearts premium · Talla XL</div>
+        <div class="card-price">$700</div>
+        <div class="card-divider"></div>
+        <a href="img/camiseta3.png" target="_blank" class="btn-ig"><i class="fas fa-image"></i>Ver más fotos</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MODAL ===== -->
+<div id="modal" class="modal">
+  <div class="modal-inner">
+    <span class="modal-close" onclick="closeModal()">×</span>
+    <img id="modal-img" class="modal-img" src="" alt="">
+    <div class="modal-body">
+      <div id="modal-brand" class="modal-brand"></div>
+      <div id="modal-title" class="modal-title"></div>
+      <div id="modal-price" class="modal-price"></div>
+      <div id="modal-desc" class="modal-desc"></div>
+      <a id="modal-link" href="#" target="_blank" class="btn-wa" style="justify-content:center;"><i class="fab fa-whatsapp"></i>Preguntar por WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/526461481411?text=¡Hola!%20Quiero%20info%20sobre%20un%20producto%20de%20Honey%20Shop" class="wa-float">
+  <i class="fab fa-whatsapp" style="font-size:22px;"></i>Comprar por WhatsApp
+</a>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">HONEY SHOP</div>
+  <div class="divider" style="margin:12px auto;">
+    <div class="ln ln-l"></div><div class="dot"></div><div class="ln ln-r"></div>
+  </div>
+  <div class="footer-sub">
+    @honey__shopmx &nbsp;·&nbsp; Ensenada, B.C.<br>
+    Envíos a todo México &nbsp;·&nbsp; Ediciones Limitadas · Solo lo mejor
+  </div>
+  <div class="footer-copy">© 2026 Honey Shop</div>
+</footer>
+
+<script>
+  // Welcome modal
+  function enterSite() {
+    const m = document.getElementById('welcomeModal');
+    m.classList.add('hidden');
+    setTimeout(() => m.style.display = 'none', 600);
+  }
+  window.onload = () => {
+    document.getElementById('welcomeModal').style.display = 'flex';
+  };
+
+  // Quick view modal
+  function openModal(btn) {
+    const card = btn.closest('.card');
+    document.getElementById('modal-img').src = card.dataset.img;
+    document.getElementById('modal-brand').textContent = card.dataset.brand || '';
+    document.getElementById('modal-title').textContent = card.dataset.title;
+    document.getElementById('modal-price').textContent = card.dataset.price;
+    document.getElementById('modal-desc').textContent = card.dataset.desc;
+    const wa = card.querySelector('.btn-wa');
+    const ig = card.querySelector('.btn-ig');
+    if (wa) document.getElementById('modal-link').href = wa.href;
+    else if (ig) document.getElementById('modal-link').href = ig.href;
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Nav active on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 160) cur = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  });
+</script>
 </body>
-<html>
+</html>
+
